@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <label for="q">
+            <input type="radio" name="pen" id="q" oninput="a(this)">铅笔 
+            <input type="text">
+        </label>
+        <label for="g">
+            <input type="radio" name="pen" id="g" oninput="a(this)">钢笔 
+            <input type="text">
+        </label>
+    </div>
+    <script>
+        function a(obj){
+            $(obj).siblings("input").focus();
+        }
+    </script>
+</body>
+</html>

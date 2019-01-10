@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠板</title>
+    <!-- <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_778908_y80ocz84dat.css" /> -->
+    <link rel="stylesheet" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <!-- <link rel="stylesheet" href="iview.css"> -->
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style>
+        .menu-item .ivu-layout-sider-trigger {
+            display: none;
+        }
+        .icon {
+            width:200px;
+            height:50px;
+            /* background-color: #515a6e; */
+        }
+
+    </style>
+</head>
+<!-- 搓搓粗凑凑错错错错促成凑哦筹措丛脞粗 -->
+
+<body>
+    <div id="app">
+        <div class="icon">
+                <Icon type="ios-navigate" @click="move"></Icon>
+                <Icon type="ios-add-circle-outline" color="pink" size="24" @click="move"></Icon>
+        </div>
+        <sider style="height:100vh;color:aliceblue;" ref="zhedie" collapsible :collapsed-width="78" v-model="isCollapsed"
+            :class="menuitemClasses">
+            <div>
+                巧克力的成分巧克力的成分巧克力的成分英飞特百度一下你就知道吕鹏盆栽文件夹是的面包屑
+                巧克力的成分巧克力的成分巧克力的成分英飞特百度一下你就知道吕鹏盆栽文件夹是的面包屑
+                巧克力的成分巧克力的成分巧克力的成分英飞特百度一下你就知道吕鹏盆栽文件夹是的面包屑
+            </div>
+        </sider>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                isCollapsed: false
+            },
+            computed: {
+                menuitemClasses: function () {
+                    return [
+                        'menu-item',
+                        this.isCollapsed ? 'collapsed-menu' : ''
+                    ]
+                }
+            },
+            methods: {
+                move: function () {
+                    this.$refs.zhedie.toggleCollapse();
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

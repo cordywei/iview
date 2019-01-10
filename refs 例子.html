@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>refs</title>
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" ref="input1" id="input1">
+        <button @click="add">添加</button>
+    </div>
+
+    <div id="app2">
+        <user-profile ref="profile"></user-profile>
+    </div>
+
+    <div id="app3">
+        <input type="text" ref="input1" id="input1">
+        <button @click="add2">添加</button>
+        <my-component ref="com"></my-component>
+    </div>
+    
+    <script>
+        new Vue({
+            el:"#app",
+            methods:{
+                add:function(){
+                    this.$refs.input1.value="22"
+                }
+            }
+        })
+        ///////////////////////////////////////////////////////////
+        var parent = new Vue({
+            el:"#app2",            
+        });
+        var child = parent.$refs.profile;
+
+        ///////////////////////////////////////////////////////////
+        Vue.component("my-component",{
+            template:"<div>我是一个全局组件</div>"
+        })
+
+        new Vue({
+            el:"#app3",
+            methods:{
+                add2:function(){
+                    this.$refs.input1.value="232";
+                    console.log(this.$refs)
+                    console.log(this.$refs.input1)
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
